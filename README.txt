@@ -1,4 +1,4 @@
-JPMorgan Hackaton 2019 - Team 2
+JPMorgan Code For Good Hackaton 2019 - Team 2
 
 
 Poder management system
@@ -7,9 +7,13 @@ Hello world!
 
 
 Amro Hwary
+
 Sohil Adwani
-Nguyen Nguyen
+
 Awale Ahmed
+
+Nguyen Nguyen
+
 Sidhant Swami
 
 Presentaton almost done
@@ -23,6 +27,6 @@ Currently working on the ui/ux for homepage
 
 Started working on AI speech to read
 
-a
-b
-c
+
+
+
