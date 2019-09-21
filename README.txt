@@ -12,13 +12,17 @@ Awale Ahmed
 Sidhant Swami
 
 Presentaton almost done
-x
+
 Registration is 50% complete
 
 Registration 100%
+
 _______________________________________
 
 Currently working on the ui/ux for homepage
 
 Started working on AI speech to read
 
+a b c
+d e f 
+g h
