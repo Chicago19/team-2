@@ -1,18 +1,12 @@
-
-
 Our application provides Poder the all-in-one stop shop for returning students and new students. 
 
 New students can begin their registeration process, take their first placement exam, find out their qualification, 
 and schedule their first orientation all under one  hour.
 
-Returning students can look up their grades, 
+Returning students can look up their grades, assignments
 
 All data received from the students will be entered into the Saleforce database automatically.
 
 Another feature that we are implementing is the Speech to Text recognition to automate the Oral Exam. Students can record a video of 
 them speaking/answering a set of questionaires, and our API will determine their speaking proficiency.
-
-
-
-
 
