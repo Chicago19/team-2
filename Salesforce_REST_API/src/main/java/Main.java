@@ -83,4 +83,49 @@ public class Main {
         // release connection
         post.releaseConnection();
     }
+    public static void queryLeads() {
+        try {
+
+            //Set up the HTTP objects needed to make the request.
+            HttpClient httpClient = HttpClientBuilder.create().build();
+
+            String uri = baseUri + "/query?q=Select+Id+,+FirstName+,+LastName+,+Company+From+Lead+Limit+5";
+            System.out.println("Query URL: " + uri);
+            HttpGet httpGet = new HttpGet(uri);
+            System.out.println("oauthHeader2: " + oauthHeader);
+            httpGet.addHeader(oauthHeader);
+            httpGet.addHeader(prettyPrintHeader);
+
+            // Make the request.
+            HttpResponse response = httpClient.execute(httpGet);
+
+            // Process the result
+            int statusCode = response.getStatusLine().getStatusCode();
+            if (statusCode == 200) {
+                String response_string = EntityUtils.toString(response.getEntity()); //unsure why 
+                try {
+                    JSONObject json = new JSONObject(response_string);
+                    System.out.println("JSON result of Query:\n" + json.toString(1));
+                    JSONArray j = json.getJSONArray("records");
+                    for (int i = 0; i < j.length(); i++){
+                        leadId = json.getJSONArray("records").getJSONObject(i).getString("Id");
+                        leadFirstName = json.getJSONArray("records").getJSONObject(i).getString("FirstName");
+                        leadLastName = json.getJSONArray("records").getJSONObject(i).getString("LastName");
+                        leadCompany = json.getJSONArray("records").getJSONObject(i).getString("Company");
+                        System.out.println("Lead record is: " + i + ". " + leadId + " " + leadFirstName + " " + leadLastName + "(" + leadCompany + ")");
+                    }
+                } catch (JSONException je) {
+                    je.printStackTrace();
+                }
+            } else {
+                System.out.println("Query was unsuccessful. Status code returned is " + statusCode);
+                System.out.println("An error has occured. Http status: " + response.getStatusLine().getStatusCode());
+                System.exit(-1);
+            }
+        } catch (IOException ioe) {
+            ioe.printStackTrace();
+        } catch (NullPointerException npe) {
+            npe.printStackTrace();
+        }
+    }
 }
