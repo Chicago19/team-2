@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:intl/intl.dart';
 
 class SignupFlow extends StatefulWidget {
   @override
@@ -10,9 +11,8 @@ class _SignupFlowState extends State<SignupFlow> {
   var stateArray = ["IGNORE", "", "", "IGNORE", "", "", ""];
   var pageNumber = 1;
   var questions = {1 : "Tell us a bit about yourself", 2 : "What is your physical address?", 3 : "Which of our programs would you be interested in? (Select all that apply)", 4 : "Please complete this intake form",
-  5 : "Which of our services would you be interested in? (Select all that apply)", 6 : "What are your preferences?", 7 : "Please fill out this short survey"};
+  5 : "Which additional services would you be interested in? (Select all that apply)", 6 : "What are your preferences?", 7 : "Please fill out this short survey"};
 
-  //sjkndkf
   void nextPage() {
     setState(() {
       pageNumber++;
@@ -420,11 +420,17 @@ class _SignupFlowState extends State<SignupFlow> {
   // INTAKE FORM PAGE
   DateTime dob = DateTime.now();
   String dobString = "Select";
+  int _val1 = 0;
+  int _val2 = 1;
+  int _hispanic = 0;
+  int _notHispanic = 1;
+  int _2Language = 0;
+  int _notLanguage = 1;
   Widget intakeFormPage() {
     return Padding(
       padding: const EdgeInsets.only(left: 27, top: 0),
       child: Container(
-        height: 300,
+        height: 461,
         padding: const EdgeInsets.only(right: 20),
         child: ListView(
           children: <Widget>[
@@ -469,23 +475,217 @@ class _SignupFlowState extends State<SignupFlow> {
               height: 2,
               color: Colors.amber,
             ),
-            Container(
-              alignment: Alignment.centerLeft,
-              width: 120,
-              height: 30,
-              child: FlatButton(
+            InkWell(
+              onTap: showDateSelector,
+              child: Container(
                 child: Text(
                   dobString,
                   textAlign: TextAlign.left,
                   style: TextStyle(
-                      fontSize: 25,
+                    fontSize: 25,
                     fontWeight: FontWeight.normal,
                     color: Color(0xFF737373),
                   )
-                ,),
-                onPressed: showDateSelector,
+                  ,),
               ),
             ),
+            SizedBox(height: 30,),
+            Text(
+              "What is your marital status?",
+              style: TextStyle(
+                fontSize: 15,
+                fontWeight: FontWeight.w500,
+              ),
+            ),
+            Container(
+              margin: const EdgeInsets.only(top: 8, right: 275, bottom: 10),
+              height: 2,
+              color: Colors.amber,
+            ),
+            new Row(
+              mainAxisAlignment: MainAxisAlignment.start,
+              children: <Widget>[
+                new Radio(
+                  value: 1,
+                  groupValue: _val1,
+                  onChanged: (int value) {
+                    setState(() {
+                      _val1 = value;
+                    });
+                  },
+                ),
+                new Text(
+                  'Married',
+                  style: new TextStyle(fontSize: 16.0),
+                ),
+                new Radio(
+                  value: 2,
+                  groupValue: _val2,
+                  onChanged: (int value) {
+                    setState(() {
+                      _val2 = value;
+                    });
+                  },
+                ),
+                new Text(
+                  'Single',
+                  style: new TextStyle(
+                    fontSize: 16.0,
+                  ),
+                ),
+              ],
+            ),
+            SizedBox(height: 30,),
+            Text(
+              "Are you hispanic or latino?",
+              style: TextStyle(
+                fontSize: 15,
+                fontWeight: FontWeight.w500,
+              ),
+            ),
+            Container(
+              margin: const EdgeInsets.only(top: 8, right: 275, bottom: 10),
+              height: 2,
+              color: Colors.amber,
+            ),
+            new Row(
+              mainAxisAlignment: MainAxisAlignment.start,
+              children: <Widget>[
+                new Radio(
+                  value: 1,
+                  groupValue: _hispanic,
+                  onChanged: (int value) {
+                    setState(() {
+                      _hispanic = value;
+                    });
+                  },
+                ),
+                new Text(
+                  'Yes',
+                  style: new TextStyle(fontSize: 16.0),
+                ),
+                new Radio(
+                  value: 2,
+                  groupValue: _notHispanic,
+                  onChanged: (int value) {
+                    setState(() {
+                      _notHispanic = value;
+                    });
+                  },
+                ),
+                new Text(
+                  'No',
+                  style: new TextStyle(
+                    fontSize: 16.0,
+                  ),
+                ),
+              ],
+            ),
+            SizedBox(height: 30,),
+            Text(
+              "What is your country of origin?",
+              style: TextStyle(
+                fontSize: 15,
+                fontWeight: FontWeight.w500,
+              ),
+            ),
+            Container(
+              margin: const EdgeInsets.only(top: 8, right: 275, bottom: 15),
+              height: 2,
+              color: Colors.amber,
+            ),
+            TextField(
+              onChanged: (newAmount) {
+                updateStateArray(newAmount);
+              },
+              maxLength: 30,
+              style: TextStyle(
+                fontSize: 25,
+              ),
+              decoration: new InputDecoration(
+                contentPadding: EdgeInsets.symmetric(vertical: -2),
+                counterText: "",
+                border: InputBorder.none,
+                focusedBorder: InputBorder.none,
+                hintText: 'Mexico',
+              ),
+            ),
+            SizedBox(height: 30,),
+            Text(
+              "Is english your second language?",
+              style: TextStyle(
+                fontSize: 15,
+                fontWeight: FontWeight.w500,
+              ),
+            ),
+            Container(
+              margin: const EdgeInsets.only(top: 8, right: 275, bottom: 10),
+              height: 2,
+              color: Colors.amber,
+            ),
+            new Row(
+              mainAxisAlignment: MainAxisAlignment.start,
+              children: <Widget>[
+                new Radio(
+                  value: 1,
+                  groupValue: _2Language,
+                  onChanged: (int value) {
+                    setState(() {
+                      _2Language = value;
+                    });
+                  },
+                ),
+                new Text(
+                  'Yes',
+                  style: new TextStyle(fontSize: 16.0),
+                ),
+                new Radio(
+                  value: 2,
+                  groupValue: _notLanguage,
+                  onChanged: (int value) {
+                    setState(() {
+                      _notLanguage = value;
+                    });
+                  },
+                ),
+                new Text(
+                  'No',
+                  style: new TextStyle(
+                    fontSize: 16.0,
+                  ),
+                ),
+              ],
+            ),
+            SizedBox(height: 30,),
+            Text(
+              "If yes, what is your primary language?",
+              style: TextStyle(
+                fontSize: 15,
+                fontWeight: FontWeight.w500,
+              ),
+            ),
+            Container(
+              margin: const EdgeInsets.only(top: 8, right: 275, bottom: 15),
+              height: 2,
+              color: Colors.amber,
+            ),
+            TextField(
+              onChanged: (newAmount) {
+                updateStateArray(newAmount);
+              },
+              maxLength: 30,
+              style: TextStyle(
+                fontSize: 25,
+              ),
+              decoration: new InputDecoration(
+                contentPadding: EdgeInsets.symmetric(vertical: -2),
+                counterText: "",
+                border: InputBorder.none,
+                focusedBorder: InputBorder.none,
+                hintText: 'Spanish',
+              ),
+            ),
+            SizedBox(height: 30,),
           ],
         )
       ),
@@ -502,7 +702,7 @@ class _SignupFlowState extends State<SignupFlow> {
               onDateTimeChanged: (DateTime newDate) {
                 setState(() {
                   dob = newDate;
-                  //dobString = DateFormat.yMMMd().format(newDate).toString();
+                  dobString = DateFormat.yMMMd().format(newDate).toString();
                 });
               },
               initialDateTime: dob,
@@ -511,7 +711,8 @@ class _SignupFlowState extends State<SignupFlow> {
           );
         });
   }
-
+  bool dayCareSelected = false;
+  bool laundrySelected = false;
   // SERVICES PAGE
   Widget servicesPage() {
     return Padding(
@@ -526,22 +727,26 @@ class _SignupFlowState extends State<SignupFlow> {
                   padding: const EdgeInsets.only(right: 10.0),
                   child: FlatButton(
                     shape: new RoundedRectangleBorder(borderRadius: new BorderRadius.circular(10.0)),
-                    child: Text("English as a Second Language", style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold),),
-                    color: Colors.amber,
-                    onPressed: nextPage,
+                    child: Text("Day care", style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold),),
+                    color: !dayCareSelected ? Colors.amber : Colors.green,
+                    onPressed: () {
+                      setState(() {
+                        dayCareSelected = !dayCareSelected;
+                      });
+                    },
                   ),
                 ),
-              ],
-            ),
-            Row(
-              children: <Widget>[
                 Padding(
                   padding: const EdgeInsets.only(right: 10.0),
                   child: FlatButton(
                     shape: new RoundedRectangleBorder(borderRadius: new BorderRadius.circular(10.0)),
-                    child: Text("Work Force Development", style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold),),
-                    color: Colors.amber,
-                    onPressed: nextPage,
+                    child: Text("Laundry", style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold),),
+                    color: !laundrySelected ? Colors.amber : Colors.green,
+                    onPressed: () {
+                      setState(() {
+                        laundrySelected = !laundrySelected;
+                      });
+                    },
                   ),
                 ),
               ],
@@ -553,37 +758,129 @@ class _SignupFlowState extends State<SignupFlow> {
   }
 
   // PREFERENCES PAGE
+  bool location1 = false;
+  bool location2 = false;
+  bool location3 = false;
+  bool location4 = false;
+  bool morning = false;
+  bool night = false;
   Widget preferencesPage() {
     return Padding(
       padding: const EdgeInsets.only(left: 27, top: 25),
       child: Container(
         padding: const EdgeInsets.only(right: 15),
         child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
           children: <Widget>[
+            Text(
+              "Please select the locations you are interested in taking classes",
+              style: TextStyle(
+                fontSize: 15,
+                fontWeight: FontWeight.w500,
+              ),
+              textAlign: TextAlign.left,
+            ),
+            Container(
+              margin: const EdgeInsets.only(top: 8, right: 275, bottom: 15),
+              height: 2,
+              color: Colors.amber,
+            ),
             Row(
+              mainAxisAlignment: MainAxisAlignment.start,
               children: <Widget>[
-                Padding(
-                  padding: const EdgeInsets.only(right: 10.0),
-                  child: FlatButton(
-                    shape: new RoundedRectangleBorder(borderRadius: new BorderRadius.circular(10.0)),
-                    child: Text("English as a Second Language", style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold),),
-                    color: Colors.amber,
-                    onPressed: nextPage,
-                  ),
+                Checkbox(
+                  value: location1,
+                  onChanged: (bool value) {
+                    setState(() {
+                      location1 = value;
+                    });
+                  },
                 ),
+                Text("Pulaski/Marquette Bank (6155 S. Pulaski)"),
               ],
             ),
             Row(
+              mainAxisAlignment: MainAxisAlignment.start,
               children: <Widget>[
-                Padding(
-                  padding: const EdgeInsets.only(right: 10.0),
-                  child: FlatButton(
-                    shape: new RoundedRectangleBorder(borderRadius: new BorderRadius.circular(10.0)),
-                    child: Text("Work Force Development", style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold),),
-                    color: Colors.amber,
-                    onPressed: nextPage,
-                  ),
+                Checkbox(
+                  value: location2,
+                  onChanged: (bool value) {
+                    setState(() {
+                      location2 = value;
+                    });
+                  },
                 ),
+                Text("Sawyer/St. Gall Parish (5533 S. Sawyer)"),
+              ],
+            ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.start,
+              children: <Widget>[
+                Checkbox(
+                  value: location3,
+                  onChanged: (bool value) {
+                    setState(() {
+                      location3 = value;
+                    });
+                  },
+                ),
+                Text("Kedzie/MFS (6422 S. Kedzie)"),
+              ],
+            ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.start,
+              children: <Widget>[
+                Checkbox(
+                  value: location4,
+                  onChanged: (bool value) {
+                    setState(() {
+                      location4 = value;
+                    });
+                  },
+                ),
+                Text("Stevenson/MFS (8010 S. Kostner)"),
+              ],
+            ),
+            SizedBox(height: 10,),
+            Text(
+              "Please select the times of day you are interested in",
+              style: TextStyle(
+                fontSize: 15,
+                fontWeight: FontWeight.w500,
+              ),
+              textAlign: TextAlign.left,
+            ),
+            Container(
+              margin: const EdgeInsets.only(top: 8, right: 275, bottom: 15),
+              height: 2,
+              color: Colors.amber,
+            ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.start,
+              children: <Widget>[
+                Checkbox(
+                  value: morning,
+                  onChanged: (bool value) {
+                    setState(() {
+                      morning = value;
+                    });
+                  },
+                ),
+                Text("Morning"),
+              ],
+            ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.start,
+              children: <Widget>[
+                Checkbox(
+                  value: night,
+                  onChanged: (bool value) {
+                    setState(() {
+                      night = value;
+                    });
+                  },
+                ),
+                Text("Night"),
               ],
             ),
           ],
@@ -595,33 +892,142 @@ class _SignupFlowState extends State<SignupFlow> {
   // SURVEY PAGE
   Widget surveyPage() {
     return Padding(
-      padding: const EdgeInsets.only(left: 27, top: 25),
+      padding: const EdgeInsets.only(left: 27, top: 0),
       child: Container(
+        height: 436,
         padding: const EdgeInsets.only(right: 15),
-        child: Column(
+        child: ListView(
           children: <Widget>[
+            Text(
+              "How did you hear about Poder?",
+              style: TextStyle(
+                fontSize: 15,
+                fontWeight: FontWeight.w500,
+              ),
+              textAlign: TextAlign.left,
+            ),
+            Container(
+              margin: const EdgeInsets.only(top: 8, right: 275, bottom: 15),
+              height: 2,
+              color: Colors.amber,
+            ),
             Row(
+              mainAxisAlignment: MainAxisAlignment.start,
               children: <Widget>[
-                Padding(
-                  padding: const EdgeInsets.only(right: 10.0),
-                  child: FlatButton(
-                    shape: new RoundedRectangleBorder(borderRadius: new BorderRadius.circular(10.0)),
-                    child: Text("English as a Second Language", style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold),),
-                    color: Colors.amber,
-                    onPressed: nextPage,
+                Checkbox(
+                  value: location1,
+                  onChanged: (bool value) {
+                    setState(() {
+                      location1 = value;
+                    });
+                  },
+                ),
+                Text("Friend/Family"),
+                SizedBox(width: 10,),
+                Container(
+                  width: 97,
+                  child: TextField(
+                    maxLength: 30,
+                    style: TextStyle(
+                      fontSize: 14,
+                    ),
+                    decoration: new InputDecoration(
+                      contentPadding: EdgeInsets.symmetric(vertical: -2),
+                      counterText: "",
+                      //border: InputBorder.none,
+                      focusedBorder: InputBorder.none,
+                      hintText: 'Please Specify',
+                    ),
                   ),
                 ),
               ],
             ),
             Row(
+              mainAxisAlignment: MainAxisAlignment.start,
               children: <Widget>[
-                Padding(
-                  padding: const EdgeInsets.only(right: 10.0),
-                  child: FlatButton(
-                    shape: new RoundedRectangleBorder(borderRadius: new BorderRadius.circular(10.0)),
-                    child: Text("Work Force Development", style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold),),
-                    color: Colors.amber,
-                    onPressed: nextPage,
+                Checkbox(
+                  value: location1,
+                  onChanged: (bool value) {
+                    setState(() {
+                      location1 = value;
+                    });
+                  },
+                ),
+                Text("Community/Organization"),
+                SizedBox(width: 10,),
+                Container(
+                  width: 97,
+                  child: TextField(
+                    maxLength: 30,
+                    style: TextStyle(
+                      fontSize: 14,
+                    ),
+                    decoration: new InputDecoration(
+                      contentPadding: EdgeInsets.symmetric(vertical: -2),
+                      counterText: "",
+                      //border: InputBorder.none,
+                      focusedBorder: InputBorder.none,
+                      hintText: 'Please Specify',
+                    ),
+                  ),
+                ),
+              ],
+            ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.start,
+              children: <Widget>[
+                Checkbox(
+                  value: location1,
+                  onChanged: (bool value) {
+                    setState(() {
+                      location1 = value;
+                    });
+                  },
+                ),
+                Text("Voluntary"),
+              ],
+            ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.start,
+              children: <Widget>[
+                Checkbox(
+                  value: location1,
+                  onChanged: (bool value) {
+                    setState(() {
+                      location1 = value;
+                    });
+                  },
+                ),
+                Text("Online"),
+              ],
+            ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.start,
+              children: <Widget>[
+                Checkbox(
+                  value: location1,
+                  onChanged: (bool value) {
+                    setState(() {
+                      location1 = value;
+                    });
+                  },
+                ),
+                Text("Other"),
+                SizedBox(width: 10,),
+                Container(
+                  width: 97,
+                  child: TextField(
+                    maxLength: 30,
+                    style: TextStyle(
+                      fontSize: 14,
+                    ),
+                    decoration: new InputDecoration(
+                      contentPadding: EdgeInsets.symmetric(vertical: -2),
+                      counterText: "",
+                      //border: InputBorder.none,
+                      focusedBorder: InputBorder.none,
+                      hintText: 'Please Specify',
+                    ),
                   ),
                 ),
               ],
@@ -632,5 +1038,3 @@ class _SignupFlowState extends State<SignupFlow> {
     );
   }
 }
-
-
