@@ -1,12 +1,21 @@
 import java.io.IOException;
-import org.apache.http.client.methods.HttpPost;
-import org.apache.http.client.HttpClient;
-import org.apache.http.impl.client.HttpClientBuilder;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.io.BufferedReader;
+import org.apache.http.Header;
 import org.apache.http.HttpResponse;
+import org.apache.http.client.HttpClient;
+import org.apache.http.client.methods.HttpDelete;
+import org.apache.http.client.methods.HttpGet;
+import org.apache.http.client.methods.HttpPost;
+import org.apache.http.entity.StringEntity;
+import org.apache.http.message.BasicHeader;
+import org.apache.http.impl.client.HttpClientBuilder;
 import org.apache.http.HttpStatus;
 import org.apache.http.util.EntityUtils;
 import org.apache.http.client.ClientProtocolException;
 import org.json.JSONObject;
+import org.json.JSONArray;
 import org.json.JSONTokener;
 import org.json.JSONException;
 
@@ -56,6 +65,7 @@ public class Main {
         String loginAccessToken = null;
         String loginInstanceUrl = null;
 
+
         try {
             jsonObject = (JSONObject) new JSONTokener(getResult).nextValue();
             loginAccessToken = jsonObject.getString("access_token");
@@ -68,9 +78,9 @@ public class Main {
         System.out.println("Successful login");
         System.out.println("  instance URL: "+loginInstanceUrl);
         System.out.println("  access token/session ID: "+loginAccessToken);
+        insert();
 
         // release connection
         post.releaseConnection();
-
     }
 }
