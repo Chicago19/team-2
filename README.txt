@@ -12,7 +12,7 @@ Awale Ahmed
 Sidhant Swami
 
 Presentaton almost done
-
+x
 Registration is 50% complete
 
 Registration 100%
