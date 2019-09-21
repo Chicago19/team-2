@@ -15,12 +15,18 @@ class _GradeReportState extends State<GradeReport> {
         padding: const EdgeInsets.symmetric(horizontal: 20.0),
         child: Column(
           children: <Widget>[
+            SizedBox(height: 60,),
+            Container(
+              margin: const EdgeInsets.only(right: 20),
+              height: 140,
+              child: Image.asset("images/poderLogoTransparent.png"),
+            ),
             Row(
               children: <Widget>[
                 Column(
                   children: <Widget>[
                     Container(
-                      margin: const EdgeInsets.only(left: 0,top: 80),
+                      margin: const EdgeInsets.only(left: 0,top: 10),
                       child: Align(
                         alignment: Alignment.topLeft,
                         child: Text("Your Score",
@@ -50,7 +56,7 @@ class _GradeReportState extends State<GradeReport> {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: <Widget>[
                     Container(
-                      margin: const EdgeInsets.only(left: 28,top: 70),
+                      margin: const EdgeInsets.only(left: 28,top: 0),
                       child: Align(
                         alignment: Alignment.topLeft,
                         child: Text("5/5 Grammar",

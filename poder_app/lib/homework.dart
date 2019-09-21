@@ -102,13 +102,13 @@ class _HomeworkState extends State<Homework> {
                         style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold, color: Colors.black),
                       ),
                     ),
-                    SizedBox(width: 17),
+                    SizedBox(width: 40),
                     //SizedBox(width: 15),
                   ],
                 ),
                 Row(
                   children: <Widget>[
-                    SizedBox(width: 34,),
+                    SizedBox(width: 25,),
                     Icon(
                       Icons.edit,
                       size: 35,
@@ -147,7 +147,7 @@ class _HomeworkState extends State<Homework> {
                           style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold, color: Colors.black),
                         ),
                       ),
-                      SizedBox(width: 15),
+                      SizedBox(width: 18),
                       //SizedBox(width: 15),
                     ],
                   ),
@@ -200,7 +200,7 @@ class _HomeworkState extends State<Homework> {
                 ),
                 Row(
                   children: <Widget>[
-                    SizedBox(width: 20,),
+                    SizedBox(width: 32,),
                     Icon(
                       Icons.camera_alt,
                       size: 35,
@@ -246,7 +246,7 @@ class _HomeworkState extends State<Homework> {
                 ),
                 Row(
                   children: <Widget>[
-                    SizedBox(width: 72,),
+                    SizedBox(width: 80,),
                     Padding(
                       padding: const EdgeInsets.only(top: 0.0),
                       child: Text("97%",
@@ -293,7 +293,7 @@ class _HomeworkState extends State<Homework> {
                 ),
                 Row(
                   children: <Widget>[
-                    SizedBox(width: 135,),
+                    SizedBox(width: 138,),
                     Padding(
                       padding: const EdgeInsets.only(top: 0.0),
                       child: Text("86%",
@@ -340,7 +340,7 @@ class _HomeworkState extends State<Homework> {
                 ),
                 Row(
                   children: <Widget>[
-                    SizedBox(width: 130,),
+                    SizedBox(width: 132,),
                     Padding(
                       padding: const EdgeInsets.only(top: 0.0),
                       child: Text("68%",
@@ -387,7 +387,7 @@ class _HomeworkState extends State<Homework> {
                 ),
                 Row(
                   children: <Widget>[
-                    SizedBox(width: 30,),
+                    SizedBox(width: 45,),
                     Icon(
                       Icons.camera_alt,
                       size: 35,
@@ -433,7 +433,7 @@ class _HomeworkState extends State<Homework> {
                 ),
                 Row(
                   children: <Widget>[
-                    SizedBox(width: 52,),
+                    SizedBox(width: 65,),
                     Icon(
                       Icons.camera_alt,
                       size: 35,
@@ -479,13 +479,13 @@ class _HomeworkState extends State<Homework> {
                 ),
                 Row(
                   children: <Widget>[
-                    SizedBox(width: 13,),
+                    SizedBox(width: 17,),
                     Icon(
                       Icons.camera_alt,
                       size: 35,
                       color: Colors.black,
                     ),
-                    SizedBox(width: 0),
+                    SizedBox(width: 10),
                   ],
                 ),
               ],
@@ -525,7 +525,7 @@ class _HomeworkState extends State<Homework> {
                 ),
                 Row(
                   children: <Widget>[
-                    SizedBox(width: 22,),
+                    SizedBox(width: 35,),
                     Icon(
                       Icons.camera_alt,
                       size: 35,

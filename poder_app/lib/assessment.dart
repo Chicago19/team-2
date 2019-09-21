@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'grade_report.dart';
 
 class Assessment extends StatefulWidget {
@@ -409,9 +409,10 @@ class _SpeechExamState extends State<SpeechExam> {
                 SizedBox(height: 5,),
                 Row(
                   children: <Widget>[
-                    SizedBox(width: 122),
-                    FloatingActionButton(
-                      backgroundColor: recording ? Colors.red : Colors.black,
+                    SizedBox(width: 90),
+                    RaisedButton(
+                      elevation: 0,
+                      color: recording ? Colors.red : Colors.grey,
                       child: Icon(Icons.mic),
                       onPressed: () {
                         setState(() {
@@ -421,20 +422,63 @@ class _SpeechExamState extends State<SpeechExam> {
                         });
                       },
                     ),
-                    SizedBox(width: 20,),
-                    FloatingActionButton(
-                      backgroundColor: saved ? Colors.green : Colors.black,
+                    SizedBox(width: 25,),
+                    RaisedButton(
+                      elevation: 0,
+                      color: saved ? Colors.green : Colors.grey,
                       child: Icon(Icons.done_all),
                       onPressed: () {
-                        if (recording) {
-                          setState(() {
+                        setState(() {
+                          if (recording) {
                             saved = true;
                             recording = false;
-                          });
-                        }
+                          }
+                        });
                       },
                     ),
+//                    FloatingActionButton(
+//                      backgroundColor: recording ? Colors.red : Colors.black,
+//                      child: Icon(Icons.mic),
+//                      onPressed: () {
+//                        setState(() {
+//                          if (!recording) {
+//                            recording = true;
+//                          }
+//                        });
+//                      },
+//                    ),
+                    SizedBox(width: 20,),
+//                    FloatingActionButton(
+//                      backgroundColor: saved ? Colors.green : Colors.black,
+//                      child: Icon(Icons.done_all),
+//                      onPressed: () {
+//                        if (recording) {
+//                          setState(() {
+//                            saved = true;
+//                            recording = false;
+//                          });
+//                        }
+//                      },
+//                    ),
                   ],
+                ),
+                Container(
+                  child: StreamBuilder(
+                    stream: Firestore.instance.collection("speechToText").document("speech").snapshots(),
+                    builder: (context, snapshot) {
+                      print(snapshot.hasData);
+                      if (!snapshot.hasData) {
+                        return Text("",
+                          style: TextStyle(fontSize: 12, fontWeight: FontWeight.bold, color: Colors.white),
+                        );
+                      }
+                      else {
+                        return Text(snapshot.data["speech"].toString(),
+                          style: TextStyle(fontSize: 14, fontWeight: FontWeight.bold, color: Colors.black),
+                        );
+                      }
+                    },
+                  ),
                 ),
                 Container(
                   height: 400,
