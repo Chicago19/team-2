@@ -2,6 +2,8 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 
+import 'assessment.dart';
+
 class SignupFlow extends StatefulWidget {
   @override
   _SignupFlowState createState() => _SignupFlowState();
@@ -46,10 +48,14 @@ class _SignupFlowState extends State<SignupFlow> {
         child: IconButton(
           icon: Icon(Icons.check_circle, color: Colors.green,),
           iconSize: 60,
-          onPressed: null,
+          onPressed: goToAssessment,
         ),
       );
     }
+  }
+
+  void goToAssessment() {
+    Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => Assessment()));
   }
 
   Widget footer() {
@@ -889,6 +895,16 @@ class _SignupFlowState extends State<SignupFlow> {
     );
   }
 
+  bool friend = false;
+  bool comm = false;
+  bool vol = false;
+  bool online = false;
+  bool other = false;
+  bool english = false;
+  bool getJob = false;
+  bool trainJob = false;
+  bool computer = false;
+  bool other2 = false;
   // SURVEY PAGE
   Widget surveyPage() {
     return Padding(
@@ -915,10 +931,10 @@ class _SignupFlowState extends State<SignupFlow> {
               mainAxisAlignment: MainAxisAlignment.start,
               children: <Widget>[
                 Checkbox(
-                  value: location1,
+                  value: friend,
                   onChanged: (bool value) {
                     setState(() {
-                      location1 = value;
+                      friend = value;
                     });
                   },
                 ),
@@ -946,10 +962,10 @@ class _SignupFlowState extends State<SignupFlow> {
               mainAxisAlignment: MainAxisAlignment.start,
               children: <Widget>[
                 Checkbox(
-                  value: location1,
+                  value: comm,
                   onChanged: (bool value) {
                     setState(() {
-                      location1 = value;
+                      comm = value;
                     });
                   },
                 ),
@@ -977,10 +993,10 @@ class _SignupFlowState extends State<SignupFlow> {
               mainAxisAlignment: MainAxisAlignment.start,
               children: <Widget>[
                 Checkbox(
-                  value: location1,
+                  value: vol,
                   onChanged: (bool value) {
                     setState(() {
-                      location1 = value;
+                      vol = value;
                     });
                   },
                 ),
@@ -991,10 +1007,10 @@ class _SignupFlowState extends State<SignupFlow> {
               mainAxisAlignment: MainAxisAlignment.start,
               children: <Widget>[
                 Checkbox(
-                  value: location1,
+                  value: online,
                   onChanged: (bool value) {
                     setState(() {
-                      location1 = value;
+                      online = value;
                     });
                   },
                 ),
@@ -1005,14 +1021,115 @@ class _SignupFlowState extends State<SignupFlow> {
               mainAxisAlignment: MainAxisAlignment.start,
               children: <Widget>[
                 Checkbox(
-                  value: location1,
+                  value: other,
                   onChanged: (bool value) {
                     setState(() {
-                      location1 = value;
+                      other = value;
                     });
                   },
                 ),
-                Text("Other"),
+                Text("Other:"),
+                SizedBox(width: 10,),
+                Container(
+                  width: 97,
+                  child: TextField(
+                    maxLength: 30,
+                    style: TextStyle(
+                      fontSize: 14,
+                    ),
+                    decoration: new InputDecoration(
+                      contentPadding: EdgeInsets.symmetric(vertical: -2),
+                      counterText: "",
+                      //border: InputBorder.none,
+                      focusedBorder: InputBorder.none,
+                      hintText: 'Please Specify',
+                    ),
+                  ),
+                ),
+              ],
+            ),
+            SizedBox(height: 25,),
+            Text(
+              "What is the main reason you're using Poder?",
+              style: TextStyle(
+                fontSize: 15,
+                fontWeight: FontWeight.w500,
+              ),
+              textAlign: TextAlign.left,
+            ),
+            Container(
+              margin: const EdgeInsets.only(top: 8, right: 275, bottom: 15),
+              height: 2,
+              color: Colors.amber,
+            ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.start,
+              children: <Widget>[
+                Checkbox(
+                  value: friend,
+                  onChanged: (bool value) {
+                    setState(() {
+                      friend = value;
+                    });
+                  },
+                ),
+                Text("To learn English"),
+              ],
+            ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.start,
+              children: <Widget>[
+                Checkbox(
+                  value: english,
+                  onChanged: (bool value) {
+                    setState(() {
+                      english = value;
+                    });
+                  },
+                ),
+                Text("To get a job"),
+              ],
+            ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.start,
+              children: <Widget>[
+                Checkbox(
+                  value: getJob,
+                  onChanged: (bool value) {
+                    setState(() {
+                      getJob = value;
+                    });
+                  },
+                ),
+                Text("Job training"),
+              ],
+            ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.start,
+              children: <Widget>[
+                Checkbox(
+                  value: trainJob,
+                  onChanged: (bool value) {
+                    setState(() {
+                      trainJob = value;
+                    });
+                  },
+                ),
+                Text("Computer/Tech"),
+              ],
+            ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.start,
+              children: <Widget>[
+                Checkbox(
+                  value: other2,
+                  onChanged: (bool value) {
+                    setState(() {
+                      other2 = value;
+                    });
+                  },
+                ),
+                Text("Other:"),
                 SizedBox(width: 10,),
                 Container(
                   width: 97,
