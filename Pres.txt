@@ -4,11 +4,11 @@ We are team ()
 
 This is the solution we came up with
 
--we built this mobile app with a backend on salesforce
+- we built this mobile app with a backend on salesforce
 
-- how
+- HOW
 
--what it enables them too do
+- what it enables them too do
 
 -- value of what this will save them, 1 person not doing this job over again, person can do something more valuable with their time
 
