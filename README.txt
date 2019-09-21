@@ -1,4 +1,4 @@
-JPMorgan Hackaton 2019 - Team 2
+JPMorgan Code For Good Hackaton 2019 - Team 2
 
 Poder management system
 
@@ -14,7 +14,7 @@ Presentaton almost done
 
 Registration is 50% complete
 
-Registration 100%
+Registration 100%!
 
 _______________________________________
 
