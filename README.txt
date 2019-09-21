@@ -22,9 +22,9 @@ Registration is 50% complete
 
 Registration 99%
 
-Hello
-\
 
 Currently working on the ui/ux for homepage
+
+Started working on AI speech to read
 
 
