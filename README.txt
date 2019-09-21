@@ -25,5 +25,6 @@ Registration 99%
 Hello
 \
 
+Currently working on the ui/ux for homepage
 
 
