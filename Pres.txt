@@ -4,9 +4,9 @@ We are team ()
 
 This is the solution we came up with
 
--we built this mobile app with a backend on salesforce
+- we built this mobile app with a backend on salesforce
 
-- how
+- HOW
 
 -what it enables them too do
 
