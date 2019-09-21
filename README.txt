@@ -16,7 +16,7 @@ Presentaton almost done
 
 Registration is 50% complete
 
-Registration 1009%
+Registration 100%
 
 
 Currently working on the ui/ux for homepage
