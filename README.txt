@@ -6,12 +6,10 @@ Poder management system
 Hello world!
 
 
-
 Amro Hwary
 Sohil Adwani
 Nguyen Nguyen
 Awale Ahmed
-
 Sidhant Swami
 
 Presentaton almost done
