@@ -20,6 +20,8 @@ _________________________________________________________________
 
 Currently working on the ui/ux for homepage
 
+Salesforce is no bueno
+
 Started working on AI speech to read
 
 a b c
