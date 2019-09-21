@@ -16,7 +16,6 @@ x
 Registration is 50% complete
 
 Registration 100%
-
 _______________________________________
 
 Currently working on the ui/ux for homepage
