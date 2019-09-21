@@ -19,3 +19,5 @@ Sidhant Swami
 Presentaton almost done
 
 Registration is 50% complete
+
+Registration 99%
