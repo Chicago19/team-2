@@ -1,0 +1,30 @@
+Problem statement what you are trying to solve- tell them problem in 1-2 lines.
+
+We are team ()
+
+This is the solution we came up with
+
+-we built this mobile app with a backend on salesforce
+
+- how
+
+-what it enables them too do
+
+-- value of what this will save them, 1 person not doing this job over again, person can do something more valuable with their time
+
+-- now we will show the demo.
+
+Problem statement who is he organiazation and what problems gonna solve, 2-3 bullet points, picture 
+of their logo
+
+who we are, university logos. Team name, poder online, 
+
+
+3. 
+
+How we did it, the stack, flutter sdk, saleforce backend, api to store data
+
+creative way to show benifets, monetary saving, minizing errors, security of data, seamless experience forusers.
+histroical backlog
+
+Demo
