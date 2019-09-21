@@ -22,8 +22,8 @@ import org.json.JSONException;
 
 public class Main {
 
-    static final String USERNAME = "Awaleahmed@Salesforce.com";
-    static final String PASSWORD = "";
+    static final String USERNAME = "yourusername";
+    static final String PASSWORD = "password+secrettoken";
     static final String LOGINURL = "https://login.salesforce.com";
     static final String GRANTSERVICE = "/services/oauth2/token?grant_type=password";
     static final String CLIENTID = "";
