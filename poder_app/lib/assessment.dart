@@ -182,9 +182,9 @@ class _AssessmentState extends State<Assessment> {
                                 shape: new RoundedRectangleBorder(borderRadius: new BorderRadius.circular(10.0)),
                                 color: Colors.green,
                                 onPressed: () {
-                                  Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => GradeReport()));
+                                  Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => SpeechExam()));
                                 },
-                                child: Text("Submit for grading!", style: TextStyle(color: Colors.white),),
+                                child: Text("Proceed to Oral Exam", style: TextStyle(color: Colors.white),),
                               ),
                             ),
                             SizedBox(height: 80,),
@@ -316,6 +316,154 @@ class _MultipleChoiceQuestionState extends State<MultipleChoiceQuestion> {
             ],
           ),
           SizedBox(height: 15,)
+        ],
+      ),
+    );
+  }
+}
+
+
+class SpeechExam extends StatefulWidget {
+  @override
+  _SpeechExamState createState() => _SpeechExamState();
+}
+
+class _SpeechExamState extends State<SpeechExam> {
+  bool recording = false;
+  bool saved = false;
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      body: Column(
+        children: <Widget>[
+          Container(
+            height: MediaQuery.of(context).size.height,
+            child: Column(
+              children: <Widget>[
+                SizedBox(height: 0,),
+                Container(
+                  margin: const EdgeInsets.only(left: 20, top: 80),
+                  child: Align(
+                    alignment: Alignment.topLeft,
+                    child: Text("English Assessment",
+                      style: new TextStyle(
+                        fontSize: 35,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                  ),
+                ),
+                Container(
+                  margin: const EdgeInsets.only(left: 22, top: 8, right: 27),
+                  child: Align(
+                    alignment: Alignment.topLeft,
+                    child: Text("This is required for the ESL Program",
+                      textAlign: TextAlign.left,
+                      style: new TextStyle(
+                        color: Colors.red,
+                        fontSize: 14,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                  ),
+                ),
+                Container(
+                  height: 3,
+                  margin: const EdgeInsets.only(left: 25.0, right: 250.0, top: 10),
+                  color: Colors.amber,
+                ),
+                Container(
+                  margin: const EdgeInsets.only(left: 22, top: 20, right: 27),
+                  child: Align(
+                    alignment: Alignment.topLeft,
+                    child: Text("Directions: Use your microphone to answer the following prompt.",
+                      textAlign: TextAlign.left,
+                      style: new TextStyle(
+                        color: Colors.black,
+                        fontSize: 14,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                  ),
+                ),
+                SizedBox(height: 50,),
+                Container(
+                  margin: const EdgeInsets.only(left: 22, top: 8, right: 27),
+                  child: Align(
+                    alignment: Alignment.topLeft,
+                    child: Text("Tell me your name, what you do for work, and a fun fact about yourself.",
+                      textAlign: TextAlign.center,
+                      style: new TextStyle(
+                        color: Colors.black,
+                        fontSize: 14,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                  ),
+                ),
+                Container(
+                  height: 3,
+                  margin: const EdgeInsets.symmetric(horizontal: 120, vertical: 15),
+                  color: Colors.amber,
+                ),
+                SizedBox(height: 5,),
+                Row(
+                  children: <Widget>[
+                    SizedBox(width: 122),
+                    FloatingActionButton(
+                      backgroundColor: recording ? Colors.red : Colors.black,
+                      child: Icon(Icons.mic),
+                      onPressed: () {
+                        setState(() {
+                          if (!recording) {
+                            recording = true;
+                          }
+                        });
+                      },
+                    ),
+                    SizedBox(width: 20,),
+                    FloatingActionButton(
+                      backgroundColor: saved ? Colors.green : Colors.black,
+                      child: Icon(Icons.done_all),
+                      onPressed: () {
+                        if (recording) {
+                          setState(() {
+                            saved = true;
+                            recording = false;
+                          });
+                        }
+                      },
+                    ),
+                  ],
+                ),
+                Container(
+                  height: 400,
+                  child: ListView(
+                    children: <Widget>[
+                      Container(
+                        height: 400,
+                        child: ListView(
+                          children: <Widget>[
+                            Padding(
+                              padding: const EdgeInsets.symmetric(horizontal: 40.0),
+                              child: FlatButton(
+                                shape: new RoundedRectangleBorder(borderRadius: new BorderRadius.circular(10.0)),
+                                color: Colors.green,
+                                onPressed: () {
+                                  Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => GradeReport()));
+                                },
+                                child: Text("Submit for grading!", style: TextStyle(color: Colors.white),),
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+              ],
+            ),
+          ),
         ],
       ),
     );
