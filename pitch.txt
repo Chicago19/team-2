@@ -1,4 +1,3 @@
-
 Our application provides Poder the all-in-one stop shop for returning students and new students. 
 
 New students can begin their registeration process, take their first placement exam, find out their qualification, 
