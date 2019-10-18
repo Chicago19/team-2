@@ -27,7 +27,7 @@ public class Main {
     static final String LOGINURL = "https://login.salesforce.com";
     static final String GRANTSERVICE = "/services/oauth2/token?grant_type=password";
     static final String CLIENTID = "id";
-    static final String CLIENTSECRET = "secret";
+    static final String CLIENTSECRET = "secret_key";
     private static String REST_ENDPOINT = "/services/data";
     private static String API_VERSION = "/v32.0";
     private static String baseUri;
