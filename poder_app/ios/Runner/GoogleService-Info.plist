@@ -3,11 +3,11 @@
 <plist version="1.0">
 <dict>
 	<key>CLIENT_ID</key>
-	<string></string>
+	<string>CLIENT_ID</string>
 	<key>REVERSED_CLIENT_ID</key>
-	<string></string>
+	<string>REVERSE_CLIENT_</string>
 	<key>API_KEY</key>
-	<string></string>
+	<string>API_KEY</string>
 	<key>GCM_SENDER_ID</key>
 	<string>815179201542</string>
 	<key>PLIST_VERSION</key>
